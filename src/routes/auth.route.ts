@@ -29,7 +29,7 @@ Router.post("/signup", async (req: Request, res: Response) => {
 	});
 	const payload: Ipayload = { phone: user.phone, userId: user.id };
 	const accessToken = jwt.sign(payload, process.env.JWT_ACCESSTOKEN!, {
-		expiresIn: "30s"
+		expiresIn: "2m"
 	});
 	const refreshToken = jwt.sign(payload, process.env.JWT_REFRESHTOKEN!, {
 		expiresIn: "30d"
@@ -63,7 +63,7 @@ Router.post("/signin", async (req: Request, res: Response) => {
 	const payload: Ipayload = { phone: user.phone, userId: user.id };
 
 	const accessToken = jwt.sign(payload, process.env.JWT_ACCESSTOKEN!, {
-		expiresIn: "30s"
+		expiresIn: "2ms"
 	});
 	const refreshToken = jwt.sign(payload, process.env.JWT_REFRESHTOKEN!, {
 		expiresIn: "30d"
